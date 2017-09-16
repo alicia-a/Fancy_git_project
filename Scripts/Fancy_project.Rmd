@@ -14,7 +14,7 @@ library(ggplot2)
 summary(diamonds)
 
 ggplot(data = diamonds, mapping = aes(x = carat, y = price, colour = cut)) +
-  geom_point() +
+  geom_point(size = 0.5, position = "jitter") +
   geom_smooth()
 
 ```
