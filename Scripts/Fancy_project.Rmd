@@ -14,10 +14,20 @@ library(ggplot2)
 ```{r cars}
 summary(diamonds)
 
-ggplot(data = diamonds, mapping = aes(x = carat, y = price, colour = cut)) +
-  geom_point(size = 0.5, position = "jitter") +
-  geom_smooth()
 
+diamonds %>% 
+  ggplot(mapping = aes(x = cut, y = carat)) +
+           geom_lv()
+
+
+ggplot(data = diamonds, mapping = aes(x = table, y = price)) +
+ geom_point()
+
+
+diamonds %>% 
+  count(color, cut) %>%  
+  ggplot(mapping = aes(x = color, y = cut)) +
+    geom_tile(mapping = aes(fill = n))
 ```
 
 ## Including Plots
